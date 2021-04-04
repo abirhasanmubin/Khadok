@@ -10,6 +10,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavComponent } from './nav/nav.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
+import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
 
 // Angular Material Imports
 import { FormsModule } from '@angular/forms';
@@ -25,7 +26,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { environment } from 'src/environments/environment';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 @NgModule({
     declarations: [
@@ -54,7 +57,9 @@ import { RestaurantComponent } from './restaurants/restaurant/restaurant.compone
         MatCardModule,
         MatMenuModule,
         MatInputModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatTableModule,
+        MatPaginatorModule
     ],
     providers: [],
     bootstrap: [AppComponent]
