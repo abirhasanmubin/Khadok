@@ -1,0 +1,12 @@
+{
+    "hosting": {
+        "public": "dist/Khadok",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ]
+    }
+}
