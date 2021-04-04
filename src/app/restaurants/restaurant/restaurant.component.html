@@ -1,0 +1,48 @@
+<div class="container">
+    <mat-card class="card-d">
+        <mat-card-header>
+            <mat-card-title>{{restaurant.name}}</mat-card-title>
+            <mat-card-subtitle>{{restaurant.location}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+            <button mat-raised-button (click)="goBack()" color="primary" style="float: left;">Go back</button>
+            <a routerLink="/restaurant/{{restaurant.id}}">
+                <button mat-raised-button color="warn" style="float: right;">DELETE</button>
+            </a>
+            <a routerLink="/restaurant/{{restaurant.id}}">
+                <button mat-raised-button color="accent" style="float: right;">UPDATE</button>
+            </a>
+        </mat-card-actions>
+        <br>
+    </mat-card>
+</div>
+<mat-accordion *ngIf="foodList.length>0">
+    <mat-expansion-panel *ngFor="let food of foodList">
+        <mat-expansion-panel-header>
+            {{ food.name }}
+        </mat-expansion-panel-header>
+        {{ food.price }}
+    </mat-expansion-panel>
+</mat-accordion>
+<mat-card *ngIf="foodList.length<=0">
+    <p class="info-text mat-body-1">No Post Added Yet</p>
+</mat-card>
+
+<form (submit)="addFood(postForm)" #postForm="ngForm" class="form-f">
+    <mat-form-field>
+        <input type="text" matInput name="name" ngModel required #name="ngModel">
+        <mat-label>Name</mat-label>
+        <mat-error *ngIf="name.invalid">
+            Please Enter A Food Name
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" matInput name="price" ngModel required #price="ngModel">
+        <mat-label>Price</mat-label>
+        <mat-error *ngIf="price.invalid">
+            Please Enter Food Price.
+        </mat-error>
+    </mat-form-field>
+    <span></span>
+    <button mat-raised-button color="accent" type="submit">Add Food</button>
+</form>

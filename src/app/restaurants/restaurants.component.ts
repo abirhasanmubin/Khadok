@@ -15,7 +15,6 @@ export class RestaurantsComponent implements OnInit {
 
     ngOnInit(): void {
         this.firestoreService.getRestaurants().subscribe(restaurants => {
-            //console.log(items);
             this.restaurants = restaurants;
         });
     }
@@ -30,13 +29,8 @@ export class RestaurantsComponent implements OnInit {
             return
         }
         this.data = { name: form.value.name, location: form.value.location };
-        console.log(this.data);
-        this.firestoreService.addRestaurant(this.data)
-            .then((result) => {
-                console.log(result);
-            }).catch((err) => {
-                console.log(err.message);
-            });
+
+        this.firestoreService.addRestaurant(this.data);
         form.resetForm();
     }
 
