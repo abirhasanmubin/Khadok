@@ -1,0 +1,52 @@
+<form (submit)="onSubmit(postForm)" #postForm="ngForm" class="form-c">
+    <mat-form-field>
+        <input type="text" matInput name="name" ngModel required #name="ngModel">
+        <mat-label>Name</mat-label>
+        <mat-error *ngIf="name.invalid">
+            Please Enter A Valid Restaurant Name
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput name="location" ngModel required #location="ngModel">
+        <mat-label>Location</mat-label>
+        <mat-error *ngIf="location.invalid">
+            Please Enter Valid Location.
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Save Restaurant</button>
+</form>
+
+<mat-grid-list cols="3" rowHeight="fit" style="height: 300px;" gutterSize="10px" *ngIf="restaurants.length>0">
+    <mat-grid-tile *ngFor="let restaurant of restaurants">
+        <mat-card class="card">
+            <mat-card-title>{{restaurant.name}}</mat-card-title>
+            <mat-card-subtitle>{{restaurant.location}}</mat-card-subtitle>
+            <mat-card-actions>
+                <a routerLink="/restaurant/{{restaurant.id}}">
+                    <button mat-button color="primary" style="float: left;">Details</button>
+                </a>
+                <button mat-button color="warn" style="float: right;">DELETE</button>
+                <button mat-button color="accent" style="float: right;">EDIT</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<!--
+<mat-accordion *ngIf="restaurants.length>0">
+    <mat-expansion-panel *ngFor="let restaurant of restaurants">
+        <mat-expansion-panel-header>
+            <a [routerLink]="['restaurant', restaurant.id]">
+                {{ restaurant.name }}
+            </a>
+        </mat-expansion-panel-header>
+        {{ restaurant.location }}
+        <mat-action-row>
+            <button mat-button color="accent">EDIT</button>
+            <button mat-button color="warn">DELETE</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
+<mat-card *ngIf="restaurants.length<=0">
+    <p class="info-text mat-body-1">No Restaurants Added Yet</p>
+</mat-card> -->
