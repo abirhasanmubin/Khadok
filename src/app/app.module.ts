@@ -28,6 +28,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -48,6 +49,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
         LayoutModule,
         FormsModule,
+
+        FlexLayoutModule,
         MatToolbarModule,
         MatButtonModule,
         MatSidenavModule,

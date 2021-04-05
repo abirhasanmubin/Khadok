@@ -53,6 +53,7 @@ export class RestaurantComponent implements OnInit, AfterViewInit {
             this.restaurant = restaurant;
         })
         this.firebaseService.getRestaurantFoodList(id).subscribe(list => {
+            list.sort((a, b) => a.price - b.price);
             this.dataSource = new MatTableDataSource(list);
             this.dataSource.paginator = this.paginator;
             this.foodList = list;

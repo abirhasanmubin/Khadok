@@ -1,7 +1,9 @@
 <mat-toolbar class="navbar" color="primary">
-    <div>Khadok</div>
-    <div>
-        <span>Restaurants</span>
-        <span>FoodList</span>
+    <span>Khadok</span>
+
+    <span class="example-spacer"></span>
+
+    <div fxShow="true" fxHide.lt-md="true">
+        <a routerLink="/" mat-button>Restaurant List</a>
     </div>
 </mat-toolbar>
