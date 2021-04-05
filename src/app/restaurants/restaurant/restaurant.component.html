@@ -37,7 +37,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <mat-paginator [length]="foodList.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25]">
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]">
     </mat-paginator>
 </div>
 

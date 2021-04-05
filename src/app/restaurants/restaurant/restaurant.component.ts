@@ -45,8 +45,6 @@ export class RestaurantComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.dataSource = new MatTableDataSource<Food>(this.foodList);
-        this.dataSource.paginator = this.paginator;
     }
 
     getRestaurant(): void {
@@ -55,6 +53,8 @@ export class RestaurantComponent implements OnInit, AfterViewInit {
             this.restaurant = restaurant;
         })
         this.firebaseService.getRestaurantFoodList(id).subscribe(list => {
+            this.dataSource = new MatTableDataSource(list);
+            this.dataSource.paginator = this.paginator;
             this.foodList = list;
         })
 
@@ -74,6 +74,4 @@ export class RestaurantComponent implements OnInit, AfterViewInit {
     goBack(): void {
         this.location.back();
     }
-
-
 }
